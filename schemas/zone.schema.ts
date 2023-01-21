@@ -24,4 +24,9 @@ const zoneSchema = new Schema<Zone>({
   },
 });
 
+zoneSchema.method('toJSON', function () {
+  const { __v, _id, ...data } = this.toObject();
+  data.id = _id;
+  return data
+});
 export = model('Zone', zoneSchema);
