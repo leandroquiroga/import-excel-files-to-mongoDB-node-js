@@ -6,6 +6,8 @@ export interface Environment {
   PORT: string;
   HOST: string;
   URI_DB: string;
+  STDTLL: number
+  PATH_FILE: string;
 };
 
 export interface Zone {
@@ -16,8 +18,17 @@ export interface Zone {
   province: string
 }
 
-export interface BadRequestResponse {
+export interface RequestResponse {
   code: number;
   status: boolean;
   message: string;
+}
+
+export interface ResponseOk {
+  code: number,
+  central: string,
+  zone: string,
+  locality: string,
+  province: string,
+  id: string,
 }
