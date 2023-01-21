@@ -1,4 +1,4 @@
-import { BadRequestResponse } from '../interfaces/index';
+import { RequestResponse } from '../interfaces/index';
 import XLSX, { SheetJSONOpts, WorkBook } from 'xlsx';
 
 export const readFileXlsx = (path: string): any[] => {
@@ -15,8 +15,20 @@ export const readFileXlsx = (path: string): any[] => {
   return JSON.parse(JSON.stringify(convetSheetToJSON));
   
 };
-export const responeBadRequest: BadRequestResponse = {
+export const responseBadRequest: RequestResponse = {
   code: 400,
   status: false,
   message: 'No existen datos'
 };
+
+export const invalidRequest: RequestResponse = {
+  code: 400,
+  status: false,
+  message: 'Todos los campos son obligatorios'
+}
+
+export const responseErrorServer: RequestResponse = {
+  code: 500,
+  status: false,
+  message: 'Error en el servidor'
+}
